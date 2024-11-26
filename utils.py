@@ -49,15 +49,3 @@ def summary(model):
             descriptors.append(layer.activation.__name__)
         result.append(descriptors)
     return result
-
-# Compare the two inputs
-def comparator(learner, instructor):
-    if learner == instructor:
-        for a, b in zip(learner, instructor):
-            if tuple(a) != tuple(b):
-                print(colored("Test failed", attrs=['bold']), "\n Expected value \n\n", colored(f"{b}", "green"), "\n\n does not match the input value: \n\n", colored(f"{a}", "red"))
-                raise AssertionError("Error in test") 
-        print(colored("All tests passed!", "green"))
-        
-    else:
-        print(colored("Test failed. Your output is not as expected output.", "red"))
